@@ -1,60 +1,3 @@
-// import React from 'react';
-// import { PieChart, Pie, Cell} from 'recharts';
-
-// interface DashboardsCardProps {
-//   total: number;
-//   upcoming: number;
-//   ongoing: number;
-//   completed: number;
-// }
-
-// const COLORS = ['#FFD700', '#8A2BE2', '#20B2AA'];
-
-// export const DashboardCard = ({ total, upcoming, ongoing, completed }:DashboardsCardProps) => {
-//   const data = [
-//     { name: 'Upcoming', value: upcoming, color: COLORS[0] },
-//     { name: 'Ongoing', value: ongoing, color: COLORS[1] },
-//     { name: 'Completed', value: completed, color: COLORS[2] },
-//   ];
-
-//   return (
-//     <div className="p-6 bg-white rounded-lg shadow-md">
-//       <h2 className="text-lg font-semibold mb-4">Orders</h2>
-//       <PieChart width={200} height={200}>
-//         <Pie
-//           data={data}
-//           cx="50%"
-//           cy="50%"
-//           innerRadius={60}
-//           outerRadius={80}
-//           fill="#8884d8"
-//           dataKey="value"
-//           labelLine={false}
-//         >
-//           {data.map((entry, index) => (
-//             <Cell key={`cell-${index}`} fill={entry.color} />
-//           ))}
-//         </Pie>
-//         {/* <Tooltip /> */}
-//       </PieChart>
-//       <div className="text-center mt-2">
-//         <p className="text-gray-500">Total</p>
-//         <p className="text-xl font-bold">{total}</p>
-//       </div>
-//       <div className="mt-4">
-//         {data.map((entry) => (
-//           <div key={entry.name} className="flex justify-between items-center mb-2">
-//             <span className="font-medium" style={{ color: entry.color }}>{entry.name}</span>
-//             <span>{entry.value}</span>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// components/OrdersCard.tsx
-
 "use client"
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
@@ -72,9 +15,9 @@ export const DashboardCard = ({ title, total, upcoming, ongoing, completed }: Da
 
   useEffect(() => {
     const data = [
-      { name: 'Upcoming', value: upcoming, color: '#FFD700' },
-      { name: 'Ongoing', value: ongoing, color: '#8A2BE2' },
-      { name: 'Completed', value: completed, color: '#20B2AA' },
+      { name: 'Upcoming', value: upcoming, color: '#4FD2B5' },
+      { name: 'Ongoing', value: ongoing, color: '#7464FF' },
+      { name: 'Completed', value: completed, color: '#FFCB49' },
     ];
 
     const width = 200;

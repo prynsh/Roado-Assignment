@@ -11,7 +11,7 @@ interface DriverConcernProps {
 
 export const BottomCard = ({ title, loadNumber, billTo, date, concernText }: DriverConcernProps) => {
     return (
-        <div className="border border-gray-300 rounded-lg p-4 m-4 bg-white shadow-sm">
+        <div className="border border-gray-300 rounded-lg p-4 m-4  bg-white shadow-sm">
             <div className="flex justify-between items-center mb-4">
                 <div className="flex items-center">
                     <span className="text-2xl mr-2">🚚</span>
