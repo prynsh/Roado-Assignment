@@ -54,10 +54,10 @@ export const DashboardCard = ({ title, total, upcoming, ongoing, completed }: Da
     return () => {
       d3.select(ref.current).selectAll('*').remove();
     };
-  }, [upcoming, ongoing, completed]);
+  }, [completed, upcoming, ongoing, ]);
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md w-64 mx-2">
+    <div className="p-6 bg-white rounded-lg shadow-md w-60 mx-2">
       <h2 className="text-lg font-semibold mb-4">{title}</h2>
       <div className="relative flex items-center justify-center" style={{ height: 200 }}>
         <svg ref={ref}></svg>

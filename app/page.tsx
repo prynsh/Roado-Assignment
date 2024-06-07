@@ -5,15 +5,19 @@ import { FiTruck, FiUser } from "react-icons/fi";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { BottomCard } from "./components/BottomCard";
 import { HighlightsComp } from "./components/HighlightsComp";
+import { SideBar } from "./components/SideBar";
+
+
 
 export default function Home() {
+
   return (
     // <div className="flex">
     
 
     
     <div className="w-full grid grid-cols-[auto_1fr_auto] grid-rows-[auto_100px_auto] h-screen gap-4">
-      <div className="bg-red-500 ">Sidebar</div>
+      <div className=""><SideBar/></div>
       <div className="bg-slate-50">
         <div className="flex justify-between pt-5 px-2">
           <div className="font-semibold text-2xl">Dashboard</div>

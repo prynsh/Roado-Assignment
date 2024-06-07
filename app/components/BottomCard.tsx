@@ -27,8 +27,8 @@ export const BottomCard = ({ title, loadNumber, billTo, date, concernText }: Dri
                 {concernText}
             </div>
             <div className="flex justify-end">
-                <button className="px-4 py-2 mx-7 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 focus:outline-none">Ignore</button>
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none">Resolve</button>
+                <button className="px-4 py-2 mx-7  underline underline text-blue-950 rounded-md">Ignore</button>
+                <button className="px-4 py-2 bg-indigo-900 text-white rounded-md">Resolve</button>
             </div>
         </div>
     );

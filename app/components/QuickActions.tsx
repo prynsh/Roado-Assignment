@@ -1,5 +1,5 @@
 import React from 'react';
-import Image, { StaticImageData } from 'next/image';
+
 
 interface CardProps {
   icon: JSX.Element | string;
