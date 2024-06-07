@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors:{
+        'start' : "#FFFFFF",
+        'upcomingend': "#FFCB49",
+        'ongoingend':'#7464FF',
+        'completedend' : '#4FD2B5'
+      },
+        
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

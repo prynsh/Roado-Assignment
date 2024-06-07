@@ -80,7 +80,7 @@ export const HighlightsComp = () => {
             title="Expense"
             amount={50000}
             currency="CAD"
-            color="red"
+            color="#D04141"
             details="5 payments paid"
           />
         </div>

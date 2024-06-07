@@ -6,6 +6,8 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { BottomCard } from "./components/BottomCard";
 import { HighlightsComp } from "./components/HighlightsComp";
 import { SideBar } from "./components/SideBar";
+import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 
 
 
@@ -102,6 +104,7 @@ export default function Home() {
               billTo="RoaDo demo Bangalore"
               date="13 Feb 24"
               concernText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+              thermometerIcon={<PersonOutlineOutlinedIcon/>}
             />
           </div>
           <div className="ml-14">
@@ -111,6 +114,7 @@ export default function Home() {
               billTo="RoaDo demo Bangalore"
               date="13 Feb 24"
               concernText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+              thermometerIcon={<DeviceThermostatIcon/>}
             />
           </div>
         </div>

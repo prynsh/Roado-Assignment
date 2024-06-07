@@ -1,6 +1,6 @@
-"use client"
-import React, { useEffect, useRef } from 'react';
-import * as d3 from 'd3';
+"use client";
+import React, { useEffect, useRef } from "react";
+import * as d3 from "d3";
 
 interface DashboardCardProps {
   title: string;
@@ -10,14 +10,20 @@ interface DashboardCardProps {
   completed: number;
 }
 
-export const DashboardCard = ({ title, total, upcoming, ongoing, completed }: DashboardCardProps) => {
+export const DashboardCard = ({
+  title,
+  total,
+  upcoming,
+  ongoing,
+  completed,
+}: DashboardCardProps) => {
   const ref = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     const data = [
-      { name: 'Upcoming', value: upcoming, color: '#4FD2B5' },
-      { name: 'Ongoing', value: ongoing, color: '#7464FF' },
-      { name: 'Completed', value: completed, color: '#FFCB49' },
+      { name: "Upcoming", value: upcoming, color: "#FFCB49" },
+      { name: "Ongoing", value: ongoing, color: "#7464FF" },
+      { name: "Completed", value: completed, color: "#4FD2B5" },
     ];
 
     const width = 200;
@@ -27,34 +33,35 @@ export const DashboardCard = ({ title, total, upcoming, ongoing, completed }: Da
 
     const svg = d3
       .select(ref.current)
-      .attr('width', width)
-      .attr('height', height)
-      .append('g')
-      .attr('transform', `translate(${width / 2},${height / 2})`);
+      .attr("width", width)
+      .attr("height", height)
+      .append("g")
+      .attr("transform", `translate(${width / 2},${height / 2})`);
 
     const pie = d3.pie<any>().value((d) => d.value);
     const data_ready = pie(data);
 
-    const arc = d3.arc<any>()
+    const arc = d3
+      .arc<any>()
       .innerRadius(60)
       .outerRadius(radius);
 
     svg
-      .selectAll('arc')
+      .selectAll("arc")
       .data(data_ready)
       .enter()
-      .append('path')
-      .attr('d', arc)
-      .attr('fill', (d) => d.data.color)
-      .attr('stroke', 'white')
-      .style('stroke-width', '2px')
-      .style('opacity', 0.7);
+      .append("path")
+      .attr("d", arc)
+      .attr("fill", (d) => d.data.color)
+      .attr("stroke", "white")
+      .style("stroke-width", "2px")
+      .style("opacity", 0.7);
 
     // Clean up function
     return () => {
-      d3.select(ref.current).selectAll('*').remove();
+      d3.select(ref.current).selectAll("*").remove();
     };
-  }, [completed, upcoming, ongoing, ]);
+  }, [completed, upcoming, ongoing]);
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md w-60 mx-2">
@@ -67,15 +74,15 @@ export const DashboardCard = ({ title, total, upcoming, ongoing, completed }: Da
         </div>
       </div>
       <div className="mt-4">
-        <div className="flex justify-between items-center mb-2">
-          <span className="font-medium ">Upcoming</span>
+        <div className="flex justify-between items-center mb-2 bg-gradient-to-r from-start to-upcomingend p-2 rounded-md">
+          <span className="font-medium">Upcoming</span>
           <span>{upcoming}</span>
         </div>
-        <div className="flex justify-between items-center mb-2">
+        <div className="flex justify-between items-center mb-2 bg-gradient-to-r from-start to-ongoingend p-2 rounded-md">
           <span className="font-medium">Ongoing</span>
           <span>{ongoing}</span>
         </div>
-        <div className="flex justify-between items-center mb-2">
+        <div className="flex justify-between items-center mb-2 bg-gradient-to-r from-start to-completedend p-2 rounded-md">
           <span className="font-medium">Completed</span>
           <span>{completed}</span>
         </div>
@@ -83,7 +90,3 @@ export const DashboardCard = ({ title, total, upcoming, ongoing, completed }: Da
     </div>
   );
 };
-
-
-
-
