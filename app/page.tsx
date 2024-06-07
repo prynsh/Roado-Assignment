@@ -1,3 +1,4 @@
+"use client";
 import { DashboardCard } from "./components/DashboardCard";
 import { QuickActionsCard } from "./components/QuickActions";
 import { SearchIcons } from "./components/SearchIcons";
@@ -6,20 +7,19 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { BottomCard } from "./components/BottomCard";
 import { HighlightsComp } from "./components/HighlightsComp";
 import { SideBar } from "./components/SideBar";
-import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-
-
+import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import Link from "next/link";
+import { RecoilRoot } from "recoil";
 
 export default function Home() {
-
   return (
     // <div className="flex">
-    
 
-    
     <div className="w-full grid grid-cols-[auto_1fr_auto] grid-rows-[auto_100px_auto] h-screen gap-4">
-      <div className=""><SideBar/></div>
+      <div className="">
+        <SideBar />
+      </div>
       <div className="bg-slate-50">
         <div className="flex justify-between pt-5 px-2">
           <div className="font-semibold text-2xl">Dashboard</div>
@@ -27,36 +27,14 @@ export default function Home() {
             <SearchIcons />
           </div>
         </div>
-        <div className="flex justify-around">
-          <DashboardCard
-            title="Orders"
-            total={123456}
-            upcoming={50}
-            ongoing={100}
-            completed={50}
-          />
-          <DashboardCard
-            title="Trips"
-            total={123456}
-            upcoming={50}
-            ongoing={100}
-            completed={50}
-          />
-          <DashboardCard
-            title="Revenues"
-            total={123456}
-            upcoming={50}
-            ongoing={100}
-            completed={50}
-          />
-          <DashboardCard
-            title="Expenses"
-            total={123456}
-            upcoming={50}
-            ongoing={100}
-            completed={50}
-          />
-        </div>
+        <RecoilRoot>
+          <div className="flex justify-around">
+            <DashboardCard title="Orders" />
+            <DashboardCard title="Trips" />
+            <DashboardCard title="Revenues" />
+            <DashboardCard title="Expenses" />
+          </div>
+        </RecoilRoot>
         <div className="font-semibold text-2xl mt-6 mx-8">Quick Actions</div>
         <div className="flex flex-col space-y-4 p-8">
           <div className="bg-white rounded-lg shadow-md p-4 flex justify-around items-center">
@@ -78,23 +56,25 @@ export default function Home() {
           <div className="font-semibold text-2xl mt-6">
             High Priority alerts (14)
           </div>
-          <div className="flex font-semibold text-xl mt-6 ">
-            View All{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m8.25 4.5 7.5 7.5-7.5 7.5"
-              />
-            </svg>
-          </div>
+          <Link href={"/view"}>
+            <div className="flex font-semibold text-xl mt-6 ">
+              View All{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </div>
+          </Link>
         </div>
         <div className="flex justify-around mx-5">
           <div>
@@ -104,7 +84,7 @@ export default function Home() {
               billTo="RoaDo demo Bangalore"
               date="13 Feb 24"
               concernText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-              thermometerIcon={<PersonOutlineOutlinedIcon/>}
+              thermometerIcon={<PersonOutlineOutlinedIcon />}
             />
           </div>
           <div className="ml-14">
@@ -114,7 +94,7 @@ export default function Home() {
               billTo="RoaDo demo Bangalore"
               date="13 Feb 24"
               concernText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-              thermometerIcon={<DeviceThermostatIcon/>}
+              thermometerIcon={<DeviceThermostatIcon />}
             />
           </div>
         </div>
@@ -126,4 +106,3 @@ export default function Home() {
     </div>
   );
 }
-

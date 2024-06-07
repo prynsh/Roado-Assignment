@@ -1,7 +1,7 @@
-import React from 'react';
-import SearchIcon from '@mui/icons-material/Search';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import React from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 export const SearchIcons = () => {
   return (
@@ -14,5 +14,3 @@ export const SearchIcons = () => {
     </div>
   );
 };
-
-

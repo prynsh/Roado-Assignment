@@ -1,22 +1,24 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import { useRecoilState } from "recoil";
+import {
+  totalState,
+  upcomingState,
+  ongoingState,
+  completedState,
+} from "../lib/atom";
 
 interface DashboardCardProps {
   title: string;
-  total: number;
-  upcoming: number;
-  ongoing: number;
-  completed: number;
 }
 
-export const DashboardCard = ({
-  title,
-  total,
-  upcoming,
-  ongoing,
-  completed,
-}: DashboardCardProps) => {
+export const DashboardCard = ({ title }: DashboardCardProps) => {
+  const [total, setTotal] = useRecoilState<number>(totalState);
+  const [upcoming, setUpcoming] = useRecoilState<number>(upcomingState);
+  const [ongoing, setOngoing] = useRecoilState<number>(ongoingState);
+  const [completed, setCompleted] = useRecoilState<number>(completedState);
+
   const ref = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -41,10 +43,7 @@ export const DashboardCard = ({
     const pie = d3.pie<any>().value((d) => d.value);
     const data_ready = pie(data);
 
-    const arc = d3
-      .arc<any>()
-      .innerRadius(60)
-      .outerRadius(radius);
+    const arc = d3.arc<any>().innerRadius(60).outerRadius(radius);
 
     svg
       .selectAll("arc")
@@ -66,7 +65,10 @@ export const DashboardCard = ({
   return (
     <div className="p-6 bg-white rounded-lg shadow-md w-60 mx-2">
       <h2 className="text-lg font-semibold mb-4">{title}</h2>
-      <div className="relative flex items-center justify-center" style={{ height: 200 }}>
+      <div
+        className="relative flex items-center justify-center"
+        style={{ height: 200 }}
+      >
         <svg ref={ref}></svg>
         <div className="absolute text-center">
           <p className="text-gray-500">Total</p>
